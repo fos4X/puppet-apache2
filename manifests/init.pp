@@ -4,9 +4,8 @@ class apache2 ($version = "latest", $apache2_user = 'www-data', $package = 'apac
         ensure => $version,
         notify => Exec['grant-home-access-to-apache2-user']
     }
-
     exec { 'grant-home-access-to-apache2-user':
-       command => "chown $apache2_user:$apache2_user ~$apache2_user",
+       command => "/bin/chown $apache2_user:$apache2_user ~$apache2_user",
        require => Package['apache2'],
        refreshonly => true
     }

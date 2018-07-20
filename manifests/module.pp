@@ -10,7 +10,7 @@ define apache2::module($modname) {
     }
 
     exec { "apache2-module-$modname-$name":
-        command => "a2enmod $modname",
+        command => "/usr/sbin/a2enmod $modname",
         creates => "/etc/apache2/mods-enabled/$modname.load",
         require => File["/etc/apache2/mods-available/$modname.load"],
         notify => Service["apache2"]
