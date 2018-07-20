@@ -1,5 +1,5 @@
 define apache2::virtualhost($virtualhost_name, $server_admin_mail, $document_root = "", $virtualhost_specifics = "",
-                            $is_https = false, $ssl_cert = "", $ssl_cert_key = "", $rewrite_conds = []) {
+                            $is_https = false, $ssl_cert = "", $ssl_cert_key = "", $rewrite_conds = "") {
 
     include apache2
 
