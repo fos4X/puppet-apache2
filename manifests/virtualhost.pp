@@ -9,4 +9,10 @@ define apache2::virtualhost($virtualhost_name, $server_admin_mail, $document_roo
         conffile => "$virtualhost_name.conf",
         content => template("apache2/virtual_host.erb")
     }
+
+    if is_https {
+        apache2::module { "ssl":
+            modname => "ssl"
+        }
+    }
 }
